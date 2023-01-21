@@ -1,6 +1,6 @@
 export default {
 	id: 'mass-email-operation',
-	name: 'Mass Email Operation',
+	name: 'Mass Email',
 	icon: 'mail',
 	description: 'Send email to multiple recipients, one-by-one',
 	overview: ({ body, to, replyTo, type, subject, template }) => [
@@ -40,6 +40,7 @@ export default {
           interface: "tags",
           options: {
             iconRight: "alternate_email",
+						placeholder: "You can use an array from a previous operation. E.g. {{ previousOperationKey.emails }}"
           },
         },
       },
@@ -76,6 +77,7 @@ export default {
           interface: "input",
           options: {
             iconRight: "title",
+						placeholder: "Leave empty if you have no template defined."
           },
         },
       },
