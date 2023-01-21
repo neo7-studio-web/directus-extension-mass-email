@@ -22,6 +22,7 @@ export default {
     });
 
 		for (const recipient of to) {
+			body = body.replace('%%email%%', recipient)
 			// If you don't want to specify a template use this.
 			if (template == "" || template == null)
 				await mailService.send({

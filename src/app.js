@@ -115,6 +115,7 @@ export default {
             panel.type === "wysiwyg"
               ? "input-rich-text-html"
               : "input-rich-text-md",
+          note: "Use %%email%% into the body to be replaced by the recipient email (e.g. for generating an unsubscribe link).",
         },
       },
     ];
