@@ -20,13 +20,13 @@ export default {
       accountability,
       knex: database,
     });
-
+		
 		for (const recipient of to) {
-			body = body.replace('%%email%%', recipient)
+			const editedBody = body.replace('%%email%%', recipient)
 			// If you don't want to specify a template use this.
 			if (template == "" || template == null)
 				await mailService.send({
-					html: type === "wysiwyg" ? body : md(body),
+					html: type === "wysiwyg" ? editedBody : md(editedBody),
 					to: recipient,
 					replyTo: replyTo,
 					subject: subject,
@@ -40,7 +40,7 @@ export default {
 					subject: subject,
 					template: {
 						name: template !== null || template !== undefined ? template : "base",
-						data: { html: type === "wysiwyg" ? body : md(body) },
+						data: { html: type === "wysiwyg" ? editedBody : md(editedBody) },
 					},
 				});
 			}
