@@ -18,4 +18,4 @@ npm run build
 ```
 
 * Place the content of the /dist folder into your directus folder => /extension/operations/mass-email-operation.
-* Actualize your Directus App in the browser (F5)
+* Restart & actualize (F5) your Directus App
