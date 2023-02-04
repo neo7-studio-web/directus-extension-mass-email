@@ -7,6 +7,18 @@
 
 ## Installation
 
+### Via npm
+
+In your Directus installation root
+
+```bash
+npm i directus-extension-mass-email
+```
+
+Restart directus
+
+### Or Manually
+
 Clone this project inside a folder, then:
 
 ```bash
@@ -19,3 +31,11 @@ npm run build
 
 * Place the content of the /dist folder into your directus folder => /extension/operations/mass-email-operation.
 * Restart & actualize (F5) your Directus App
+
+## Usage
+
+In a Flow you have now access to a "Mass Email" operation
+
+## Batch & pause
+
+This script will send emails one by one, with a pause of 1 minute every 50 emails.
