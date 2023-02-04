@@ -1,11 +1,20 @@
 import { marked } from "marked";
 import sanitizeHTML from "sanitize-html";
 
+const batchSize = 50
+const sleepDuration = 60 * 1000 // 1 min
+
 /**
  * Render and sanitize a markdown string
  */
-export function md(str) {
+function md(str) {
   return sanitizeHTML(marked(str));
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 export default {
@@ -14,6 +23,7 @@ export default {
     { body, to, replyTo, type, subject, template },
     { accountability, database, getSchema, services }
   ) => {
+		let counter = 0
     const { MailService } = services;
     const mailService = new MailService({
       schema: await getSchema({ database }),
@@ -43,6 +53,11 @@ export default {
 						data: { html: type === "wysiwyg" ? editedBody : md(editedBody) },
 					},
 				});
+			}
+			counter++
+			if (counter >= batchSize) {
+				counter = 0
+				sleep(sleepDuration) // Pause 1 min
 			}
 		}
 		return {to, replyTo, subject, template, type, body}
