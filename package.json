@@ -2,7 +2,7 @@
 	"name": "directus-extension-mass-email",
 	"description": "Mass Email Operation for Flows",
 	"icon": "extension",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"keywords": [
 		"directus",
 		"directus-extension",
